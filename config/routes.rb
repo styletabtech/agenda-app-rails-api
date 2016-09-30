@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
 
   resources :lists, except: [:new, :edit]
-  resources :items, only: [:index, :show, :create]
+  resources :items, except: [:new, :edit]
   # only: [:index, :show, :create, :update, :destroy]
 end

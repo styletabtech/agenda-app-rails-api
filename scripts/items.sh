@@ -10,11 +10,11 @@ curl --include --request POST http://localhost:3000/items \
   --header "Content-Type: application/json" \
   --data '{
     "item": {
-      "name": "Take out the trash",
-      "due_date": "2016-10-3",
-      "priority": "high",
+      "name": "Water the plants",
+      "due_date": "2016-10-4",
+      "priority": "medium",
       "list_id": "1",
-      "due_time": "14:00"
+      "due_time": "19:00"
     }
   }'
 
