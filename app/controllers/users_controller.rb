@@ -1,4 +1,4 @@
-class UsersController < ProtectedController
+class UsersController < ApplicationController
   # ^^change this to ApplicationController to view users w/o authenticate
   # ^^ change back to ProtectedController after view /users/
   skip_before_action :authenticate, only: [:signup, :signin]
