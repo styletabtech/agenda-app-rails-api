@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events, except: [:new, :edit]
   resources :items, except: [:new, :edit]
   resources :lists, except: [:new, :edit]
   resources :examples, except: [:new, :edit]
@@ -10,5 +11,6 @@ Rails.application.routes.draw do
 
   resources :lists, except: [:new, :edit]
   resources :items, except: [:new, :edit]
+  resources :events, only: [:index, :show]
   # only: [:index, :show, :create, :update, :destroy]
 end
