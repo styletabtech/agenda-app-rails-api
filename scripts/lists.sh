@@ -27,5 +27,5 @@ curl --include --request PATCH http://localhost:3000/lists/1 \
 
 #delete
 
-curl --include --request DELETE http://localhost:3000/lists/3 \
+curl --include --request DELETE http://localhost:3000/lists/4 \
   --header "Content-Type: application/json"
