@@ -1,4 +1,4 @@
-class ListsController < ApplicationController
+class ListsController < ProtectedController
   before_action :set_list, only: [:show, :update, :destroy]
 
   # GET /lists
