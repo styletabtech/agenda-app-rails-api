@@ -1,4 +1,5 @@
 class ListsController < ProtectedController
+  # change to ProctectedController
   before_action :set_list, only: [:show, :update, :destroy]
 
   # GET /lists

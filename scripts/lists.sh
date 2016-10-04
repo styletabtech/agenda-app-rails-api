@@ -1,8 +1,13 @@
 # index
 
+curl --include --request GET http://localhost:3000/lists \
+  --header "Authorization: Token token=$TOKEN"
+
 
 #show
 
+curl --include --request GET http://localhost:3000/lists/$ID \
+  --header "Authorization: Token token=$TOKEN"
 
 #create
 
@@ -16,7 +21,7 @@ curl --include --request POST http://localhost:3000/lists \
 
 #update
 
-curl --include --request PATCH http://localhost:3000/lists/1 \
+curl --include --request PATCH http://localhost:3000/lists/3 \
   --header "Content-Type: application/json" \
   --data '{
     "list": {
