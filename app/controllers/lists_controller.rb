@@ -5,7 +5,8 @@ class ListsController < ProtectedController
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.all
+    @lists = current_user.lists
+    # List.all
 
     render json: @lists
   end
@@ -19,7 +20,7 @@ class ListsController < ProtectedController
   # POST /lists
   # POST /lists.json
   def create
-    @list = List.new(list_params)
+    @list = current_user.lists.new(list_params)
 
     if @list.save
       render json: @list, status: :created, location: @list
@@ -31,7 +32,7 @@ class ListsController < ProtectedController
   # PATCH/PUT /lists/1
   # PATCH/PUT /lists/1.json
   def update
-    @list = List.find(params[:id])
+    @list = current_user.find(params[:id])
 
     if @list.update(list_params)
       head :no_content

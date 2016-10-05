@@ -4,7 +4,7 @@ class ItemsController < ProtectedController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = current_user.items
 
     render json: @items
   end
@@ -18,7 +18,7 @@ class ItemsController < ProtectedController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(item_params)
+    @item = current_user.items.new(item_params)
 
     if @item.save
       render json: @item, status: :created, location: @item
@@ -30,7 +30,7 @@ class ItemsController < ProtectedController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
-    @item = Item.find(params[:id])
+    @item = current_user.find(params[:id])
 
     if @item.update(item_params)
       head :no_content

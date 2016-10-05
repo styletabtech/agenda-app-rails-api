@@ -4,7 +4,7 @@ class EventsController < ProtectedController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = current_user.events
 
     render json: @events
   end
@@ -18,7 +18,7 @@ class EventsController < ProtectedController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.new(event_params)
 
     if @event.save
       render json: @event, status: :created, location: @event
@@ -30,7 +30,7 @@ class EventsController < ProtectedController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    @event = Event.find(params[:id])
+    @event = current_user.find(params[:id])
 
     if @event.update(event_params)
       head :no_content
