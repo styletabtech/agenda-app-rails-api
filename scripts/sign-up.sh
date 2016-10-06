@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# user 1
 curl --include --request POST http://localhost:3000/sign-up \
   --header "Content-Type: application/json" \
   --data '{
@@ -9,6 +10,8 @@ curl --include --request POST http://localhost:3000/sign-up \
       "password_confirmation": "an example password"
     }
   }'
+
+# user 2
 
 curl --include --request POST http://localhost:3000/sign-up \
   --header "Content-Type: application/json" \

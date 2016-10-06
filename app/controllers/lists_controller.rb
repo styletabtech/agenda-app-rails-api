@@ -1,11 +1,11 @@
 class ListsController < ProtectedController
   # change to ProctectedController
-  before_action :set_list, only: [:index, :show, :update, :destroy]
+  before_action :set_list, only: [:show, :update, :destroy]
 
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.all
+    @lists = current_user.lists.all
 
     render json: @lists
   end
@@ -13,7 +13,7 @@ class ListsController < ProtectedController
   # GET /lists/1
   # GET /lists/1.json
   def show
-    render json: List.find(params[:id])
+    render json: @list
   end
 
   # POST /lists
