@@ -1,12 +1,11 @@
 class ListsController < ProtectedController
   # change to ProctectedController
-  before_action :set_list, only: [:show, :update, :destroy]
+  before_action :set_list, only: [:index, :show, :update, :destroy]
 
   # GET /lists
   # GET /lists.json
   def index
-    @lists = current_user.lists
-    # List.all
+    @lists = List.all
 
     render json: @lists
   end
@@ -14,7 +13,7 @@ class ListsController < ProtectedController
   # GET /lists/1
   # GET /lists/1.json
   def show
-    render json: @list
+    render json: List.find(params[:id])
   end
 
   # POST /lists
@@ -32,8 +31,6 @@ class ListsController < ProtectedController
   # PATCH/PUT /lists/1
   # PATCH/PUT /lists/1.json
   def update
-    @list = current_user.find(params[:id])
-
     if @list.update(list_params)
       head :no_content
     else
@@ -52,7 +49,7 @@ class ListsController < ProtectedController
   private
 
   def set_list
-    @list = List.find(params[:id])
+    @list = current_user.lists.find(params[:id])
   end
 
   def list_params

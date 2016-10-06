@@ -1,10 +1,10 @@
 class ItemsController < ProtectedController
-  before_action :set_item, only: [:show, :update, :destroy]
+  before_action :set_item, only: [:index, :show, :update, :destroy]
 
   # GET /items
   # GET /items.json
   def index
-    @items = current_user.items
+    @items = Item.items
 
     render json: @items
   end
@@ -12,7 +12,7 @@ class ItemsController < ProtectedController
   # GET /items/1
   # GET /items/1.json
   def show
-    render json: @item
+    render json: List.find(params[:id])
   end
 
   # POST /items
@@ -30,8 +30,6 @@ class ItemsController < ProtectedController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
-    @item = current_user.find(params[:id])
-
     if @item.update(item_params)
       head :no_content
     else
@@ -50,7 +48,7 @@ class ItemsController < ProtectedController
   private
 
   def set_item
-    @item = Item.find(params[:id])
+    @item = current_user.items.find(params[:id])
   end
 
   def item_params
