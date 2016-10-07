@@ -1,10 +1,10 @@
 class ItemsController < ProtectedController
-  before_action :set_item, only: [:index, :show, :update, :destroy]
+  before_action :set_item, only: [:show, :update, :destroy]
 
   # GET /items
   # GET /items.json
   def index
-    @items = Item.items
+    @items = current_user.items.all
 
     render json: @items
   end
@@ -12,7 +12,7 @@ class ItemsController < ProtectedController
   # GET /items/1
   # GET /items/1.json
   def show
-    render json: List.find(params[:id])
+    render json: @item
   end
 
   # POST /items
@@ -52,6 +52,6 @@ class ItemsController < ProtectedController
   end
 
   def item_params
-    params.require(:item).permit(:name, :due_date, :priority, :list_id, :due_time)
+    params.require(:item).permit(:name, :due_date, :priority, :list_id, :due_time, :user_id)
   end
 end

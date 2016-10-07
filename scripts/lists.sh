@@ -1,13 +1,13 @@
 # index
 
 curl --include --request GET http://localhost:3000/lists \
-  --header "Authorization: Token token=BAhJIiVlMzE2NDM4N2NmMTZiNGFiMzBmZGRhMmNjNjY0NTMwYgY6BkVG--8f58450ba2f5c939ecd709a01f02bf8006d382a5"
+  --header "Authorization: Token token=BAhJIiUyZTU4Yzg2ODU2MWMzOGQwOWJjZWFhZjk1NjA3MzJjNQY6BkVG--aba5657d34963c0608b49a06d35e4351cb8976f2"
 
 
 #show
 
-curl --include --request GET http://localhost:3000/lists/86 \
-  --header "Authorization: Token token=BAhJIiVlMzE2NDM4N2NmMTZiNGFiMzBmZGRhMmNjNjY0NTMwYgY6BkVG--8f58450ba2f5c939ecd709a01f02bf8006d382a5"
+curl --include --request GET http://localhost:3000/lists/112 \
+  --header "Authorization: Token token=BAhJIiUyZTU4Yzg2ODU2MWMzOGQwOWJjZWFhZjk1NjA3MzJjNQY6BkVG--aba5657d34963c0608b49a06d35e4351cb8976f2"
 
 #create
 
